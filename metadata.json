@@ -1,0 +1,5 @@
+{
+  "name": "Barra de Acessibilidade",
+  "description": "A fully functional React demonstration of an accessibility toolbar featuring font resizing, high contrast, grayscale, link highlighting, color blindness simulations (Protanopia, Deuteranopia, Tritanopia), and a movable reading guide.",
+  "requestFramePermissions": []
+}
