@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Barra de Acessibilidade Completa",
+  "version": "1.0",
+  "description": "Barra flutuante com ajustes de fonte, contraste e correções para daltonismo.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {},
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["styles.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+/* Container da Barra - Isolamento */
+#acc-toolbar-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  z-index: 2147483647; /* Máximo z-index possível */
+  font-family: sans-serif;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  background-color: white;
+  color: #333;
+  transition: transform 0.3s ease;
+  font-size: 14px;
+  border: 1px solid #ddd;
+}
+
+#acc-toolbar-container.acc-closed {
+  width: auto;
+  height: auto;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+/* Cabeçalho */
+.acc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+}
+
+.acc-toggle-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.acc-toggle-btn:hover {
+  background: #1d4ed8;
+}
+
+.acc-close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #666;
+}
+
+/* Conteúdo da Barra */
+.acc-content {
+  padding: 12px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.acc-closed .acc-content,
+.acc-closed .acc-header-title {
+  display: none;
+}
+
+.acc-closed .acc-header {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Grupos e Botões */
+.acc-group {
+  margin-bottom: 16px;
+}
+
+.acc-group-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.acc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.acc-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.acc-btn {
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+  color: #374151;
+}
+
+.acc-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.acc-btn.active {
+  background-color: #2563eb;
+  color: white;
+  border-color: #1e40af;
+}
+
+.acc-btn-full {
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* Elementos SVG ocultos */
+#acc-svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Efeitos Globais injetados na página */
+html.acc-high-contrast {
+  filter: contrast(120%);
+}
+
+html.acc-high-contrast body {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+html.acc-high-contrast a {
+  color: #ffff00 !important;
+  text-decoration: underline !important;
+}
+
+html.acc-grayscale {
+  filter: grayscale(100%) !important;
+}
+
+/* Links destacados */
+html.acc-highlight-links a {
+  background-color: #fde047 !important;
+  color: #000 !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 3px !important;
+  text-decoration-color: #dc2626 !important;
+  padding: 2px !important;
+  border-radius: 2px !important;
+}
+
+/* Filtros de Daltonismo */
+html.acc-protanopia {
+  filter: url(#acc-protanopia) !important;
+}
+
+html.acc-deuteranopia {
+  filter: url(#acc-deuteranopia) !important;
+}
+
+html.acc-tritanopia {
+  filter: url(#acc-tritanopia) !important;
+}
+
+/* Guia de Leitura */
+#acc-reading-guide {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(37, 99, 235, 0.7);
+  z-index: 2147483646;
+  pointer-events: none; /* Deixa passar cliques */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#acc-reading-guide-handle {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  width: 24px;
+  height: 24px;
+  background-color: #2563eb;
+  border-radius: 50%;
+  cursor: grab;
+  pointer-events: auto; /* Apenas a alça recebe eventos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+html.acc-high-contrast #acc-reading-guide {
+  background-color: rgba(255, 255, 0, 0.8);
+}
+html.acc-high-contrast #acc-reading-guide-handle {
+  background-color: #ffff00;
+  color: black;
+}
